@@ -25,6 +25,7 @@ import java.util.UUID;
 import com.amazonaws.AmazonClientException;
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.auth.ClasspathPropertiesFileCredentialsProvider;
+//import com.amazonaws.auth.PropertiesCredentials;
 import com.amazonaws.regions.Region;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.s3.AmazonS3;
@@ -62,7 +63,11 @@ public class S3Sample {
          *            sample.
          * http://aws.amazon.com/security-credentials
          */
+
+		// This maybe better since you don't have to specify classpath to the credential file.
+        // AmazonS3 s3 = new AmazonS3Client(new PropertiesCredentials(new File(System.getProperty("user.home") + "/AwsCredentials.properties")));
         AmazonS3 s3 = new AmazonS3Client(new ClasspathPropertiesFileCredentialsProvider());
+
 		Region usWest2 = Region.getRegion(Regions.US_WEST_2);
 		s3.setRegion(usWest2);
 

@@ -5,7 +5,9 @@
     <path id="aws.java.sdk.classpath">
         <fileset dir="../../third-party" includes="**/*.jar"/>
         <fileset dir="../../lib" includes="**/*.jar"/>
-        <pathelement location="."/>
+		<pathelement location="."/>
+		<!-- AwsCredential -->
+		<pathelement location="${user.home}"/>
     </path>
 
     <target name="run">
